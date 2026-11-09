@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лаб2 Варіант3</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            padding: 13px;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Завдання 1: Обчислення виразів</h2>
+
+<script>
+    let a = parseFloat(prompt("Введіть значення a (за замовчуванням 3.2):", "3.2"));
+    let b = parseFloat(prompt("Введіть значення b (за замовчуванням 17.5):", "17.5"));
+    let x = parseFloat(prompt("Введіть значення x (за замовчуванням -4.8):", "-4.8"));
+
+    let y = b * Math.pow(Math.tan(x), 2) - (a / Math.pow(Math.sin(x / a), 2));
+    let d = a * Math.exp(-Math.sqrt(a)) * Math.cos((b * x) / a);
+
+    document.write("<p><b>Вхідні дані:</b> a = " + a + ", b = " + b + ", x = " + x + "</p>");
+    document.write("<p><b>Результат y:</b> " + y.toFixed(4) + "</p>");
+    document.write("<p><b>Результат d:</b> " + d.toFixed(4) + "</p>");
+
+    document.write("<h2>Завдання 2: Обробка масиву</h2>");
+
+    let n = parseInt(prompt("Введіть кількість елементів масиву (не більше 50):", "10"));
+
+    if (isNaN(n) || n < 1) n = 10;
+    if (n > 50) n = 50;
+
+    let p = 3;
+    let sumEven = 0;
+
+    document.write("<table>");
+    document.write("<tr><th>i</th><th>p[i]</th><th>a[i]</th></tr>");
+
+    for (let i = 0; i < n; i++) {
+        let current_a = p - 64;
+
+        document.write("<tr><td>" + i + "</td><td>" + p + "</td><td>" + current_a + "</td></tr>");
+
+        if (current_a % 2 === 0) {
+            sumEven += current_a;
+        }
+
+        p = (p * 67 + 11) % 128;
+    }
+
+    document.write("</table>");
+    document.write("<p><b>Сума елементів масиву a, значення яких парні числа:</b> " + sumEven + "</p>");
+</script>
+
+</body>
+</html>
